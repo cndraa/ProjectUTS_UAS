@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="3dp"
+    app:cardBackgroundColor="#ECF0F0"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,7 +58,7 @@
             android:id="@+id/textView14"
             android:layout_width="131dp"
             android:layout_height="22dp"
-            android:text="Sesi                        :"
+            android:text="Sesi                    :"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +84,7 @@
             android:id="@+id/textView27"
             android:layout_width="131dp"
             android:layout_height="21dp"
-            android:text="Jumlah SKS         :"
+            android:text="Jumlah SKS     :"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +97,7 @@
             android:id="@+id/textView13"
             android:layout_width="132dp"
             android:layout_height="21dp"
-            android:text="Hari                         :"
+            android:text="Hari                    :"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

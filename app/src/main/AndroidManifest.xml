@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerMatkulActivity"></activity>
+        <activity android:name=".RecyclerKrsActivity"></activity>
+        <activity android:name=".CrudMatkulActivity" />
+        <activity android:name=".RecyclerMatkulActivity" />
         <activity android:name=".CrudMhsActivity" />
         <activity android:name=".RecyclerMahasiswaActivity" />
         <activity android:name=".CrudDosenActivity" />

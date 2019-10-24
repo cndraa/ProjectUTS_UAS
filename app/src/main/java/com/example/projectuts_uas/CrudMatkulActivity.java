@@ -7,19 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class CrudMatkulActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_crud_matkul);
 
-        Button signButton = findViewById(R.id.signButton);
+        Button save = findViewById(R.id.btnSimpanMatkul);
 
-        signButton.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MenuDosennActivity.class); //intent untuk berpindah Helpactivity
+                Intent intent = new Intent(CrudMatkulActivity.this, RecyclerMatkulActivity.class); //intent untuk berpindah Helpactivity
                 startActivity(intent);
             }
         });
