@@ -60,6 +60,21 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/btnDosen"
+        android:layout_width="177dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#00BCD4"
+        android:foregroundTint="#FFEB3B"
+        android:text="Dosen"
+        android:textColor="#FAF9F9"
+        android:textColorHighlight="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/passText"
         android:layout_width="389dp"

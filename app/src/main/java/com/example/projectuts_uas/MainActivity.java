@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
 
         Button signButton = findViewById(R.id.signButton);
+        Button dosen = findViewById(R.id.btnDosen);
 
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,5 +27,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        dosen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MenuDosennActivity.class); //intent untuk berpindah Helpactivity
+                startActivity(intent);
+            }
+        });
     }
 }
