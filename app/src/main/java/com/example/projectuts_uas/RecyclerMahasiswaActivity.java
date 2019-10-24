@@ -24,6 +24,8 @@ public class RecyclerMahasiswaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_mahasiswa);
 
+        this.setTitle("SI KRS - Hai [Nama MHS]");
+
         tambahMhs();
 
         recyclerView = findViewById(R.id.rvMahasiswa);
@@ -35,7 +37,8 @@ public class RecyclerMahasiswaActivity extends AppCompatActivity {
 
     private void tambahMhs(){
         mhsArray = new ArrayList<>();
-        mhsArray.add(new Mahasiswa(R.drawable.ic_launcher_background,"72170001 - Candra", "didi@gmail.com", "Klitreen"));
-        mhsArray.add(new Mahasiswa(R.drawable.ic_launcher_background,"72170001 - Candra Didimus", "didimusss@gmail.com", "Klitreen"));
+        mhsArray.add(new Mahasiswa(R.drawable.ic_launcher_background,"72170001 - Didimus Candra", "didi@gmail.com", "Klitreen"));
+        mhsArray.add(new Mahasiswa(R.drawable.ic_launcher_background,"72170002 - Beni Mulia", "benn@gmail.com", "Wonosari"));
+        mhsArray.add(new Mahasiswa(R.drawable.ic_launcher_background,"72170003 - Aryawan Ravato", "aryy@gmail.com", "Dr Wahidin"));
     }
 }

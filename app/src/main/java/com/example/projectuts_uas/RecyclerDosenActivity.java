@@ -22,6 +22,8 @@ public class RecyclerDosenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_dosen);
 
+        this.setTitle("SI KRS - Hai [Nama Admin]");
+
         tambahDosen();
 
         recyclerView = findViewById(R.id.rvDosen);
@@ -33,7 +35,7 @@ public class RecyclerDosenActivity extends AppCompatActivity {
 
     private void tambahDosen() {
         dosenArray = new ArrayList<>();
-        dosenArray.add(new Dosen(R.drawable.ic_launcher_background, "765476 - Didimus Candra", "Sarjana Komputer", "candra@gmail.com", "Jalan Niaga 1"));
-        dosenArray.add(new Dosen(R.drawable.ic_launcher_background, "765423 - Didimus", "Sarjana Humaniora", "candragased@gmail.com", "Jalan Klitren Lor"));
+        dosenArray.add(new Dosen(R.drawable.ic_launcher_background, "000001 - Didimus Candra", "Sarjana Komputer", "candra@gmail.com", "Jalan Niaga 1"));
+        dosenArray.add(new Dosen(R.drawable.ic_launcher_background, "000002 - Beni Mulia", "Sarjana Humaniora", "benii@gmail.com", "Jalan Wonosari"));
     }
 }

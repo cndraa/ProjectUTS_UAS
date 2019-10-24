@@ -24,6 +24,8 @@ public class RecyclerMatkulActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_matkul);
 
+        this.setTitle("SI KRS - Hai [Nama Admin]");
+
         tambahMatkul();
 
         recyclerView = findViewById(R.id.rvMatkul);
@@ -35,7 +37,8 @@ public class RecyclerMatkulActivity extends AppCompatActivity {
 
     private void tambahMatkul(){
         matkulArray = new ArrayList<>();
-        matkulArray.add(new Matkul("726373","DDP", "Senin", "3", "3"));
-        matkulArray.add(new Matkul("726373","DDP", "Senin", "3", "3"));
+        matkulArray.add(new Matkul("DDP-1","DDP", "Senin", "3", "6"));
+        matkulArray.add(new Matkul("ALPRO-1","Alpro & StrukDat", "Selasa", "1", "5"));
+        matkulArray.add(new Matkul("IMK-1","IMK", "Rabu", "3", "3"));
     }
 }

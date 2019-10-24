@@ -24,6 +24,8 @@ public class RecyclerKrsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_krs);
 
+        this.setTitle("SI KRS - Hai [Nama Admin]");
+
         tambahKrs();
 
         recyclerView = findViewById(R.id.rvKrs);
@@ -35,7 +37,8 @@ public class RecyclerKrsActivity extends AppCompatActivity {
 
     private void tambahKrs(){
         krsArray = new ArrayList<>();
-        krsArray.add(new Krs("726373","DDP", "Senin", "3", "3","Argo Wibowo","30"));
-        krsArray.add(new Krs("726373","DDP", "Senin", "3", "3", "Pak Siang","24"));
+        krsArray.add(new Krs("DDP-1","DDP", "Senin", "3", "3","Argo Wibowo","30"));
+        krsArray.add(new Krs("ALPRO-1","ALPRO", "Senin", "3", "3", "Eric","24"));
+        krsArray.add(new Krs("JARKOM-1","Jaringan", "Jumat", "3", "3", "Argo Wibowo","34"));
     }
 }

@@ -14,12 +14,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.getSupportActionBar().hide();
+
         Button signButton = findViewById(R.id.signButton);
 
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MenuDosennActivity.class); //intent untuk berpindah Helpactivity
+                Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class); //intent untuk berpindah Helpactivity
                 startActivity(intent);
             }
         });

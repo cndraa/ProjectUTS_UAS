@@ -14,6 +14,8 @@ public class CrudMatkulActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_matkul);
 
+        this.setTitle("SI KRS - Hai [Nama Admin]");
+
         Button save = findViewById(R.id.btnSimpanMatkul);
 
         save.setOnClickListener(new View.OnClickListener() {

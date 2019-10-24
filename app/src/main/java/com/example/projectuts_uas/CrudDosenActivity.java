@@ -14,6 +14,8 @@ public class CrudDosenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_dosen);
 
+        this.setTitle("SI KRS - Hai [Nama Admin]");
+
         Button simpan = findViewById(R.id.btnSimpan);
 
         simpan.setOnClickListener(new View.OnClickListener() {
