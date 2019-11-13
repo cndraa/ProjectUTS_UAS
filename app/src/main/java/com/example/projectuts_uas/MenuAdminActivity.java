@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,6 +39,10 @@ public class MenuAdminActivity extends AppCompatActivity {
                 }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        SharedPreferences prefs = MenuAdminActivity.this.getSharedPreferences("prefs_file",MODE_PRIVATE);
+                        String statusLogin = prefs.getString("isLogin",null); SharedPreferences.Editor edit = prefs.edit();
+                        edit.putString("isLogin", null);
+                        edit.commit();
                         Intent intent = new Intent(MenuAdminActivity.this, MainActivity.class); //intent untuk berpindah Helpactivity
                         startActivity(intent);
                     }
