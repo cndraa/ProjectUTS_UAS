@@ -15,8 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projectuts_uas.CrudDosenActivity;
 import com.example.projectuts_uas.Model.Dosen;
 import com.example.projectuts_uas.R;
+import com.squareup.picasso.Picasso;
 
+import java.net.URL;
 import java.util.ArrayList;
+
 
 public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> {
 
@@ -37,7 +40,13 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        holder.icon.setImageResource(dataList.get(position).getImage());
+        holder.icon.getLayoutParams().width = 100;
+        holder.icon.getLayoutParams().height = 100;
+        if (dataList.get(position).getImage()!= null){
+            Picasso.with(this.context)
+                    .load(dataList.get(position).getImage())
+                    .into(holder.icon);
+        }
         holder.txtNidn.setText(dataList.get(position).getNidn());
         holder.txtGelar.setText(dataList.get(position).getGelar());
         holder.txtEmail.setText(dataList.get(position).getEmail());

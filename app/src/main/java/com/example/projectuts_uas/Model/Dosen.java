@@ -1,19 +1,70 @@
 package com.example.projectuts_uas.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Dosen {
 
-    private int image;
+    @SerializedName("foto")
+    @Expose
+    private String image;
+
+    @SerializedName("id")
+    @Expose
+    private String id;
+
+    @SerializedName("nama")
+    @Expose
+    private String nama;
+
+    @SerializedName("nidn")
+    @Expose
     private String nidn;
+
+    @SerializedName("gelar")
+    @Expose
     private String gelar;
+
+    @SerializedName("email")
+    @Expose
     private String email;
+
+    @SerializedName("alamat")
+    @Expose
     private String alamat;
 
-    public Dosen(int image, String nidn, String gelar, String email, String alamat){
+    public Dosen(String image, String nidn, String gelar, String email, String alamat){ //PARAMETER 1
         this.image = image;
         this.nidn = nidn;
         this.gelar = gelar;
         this.email = email;
         this.alamat = alamat;
+    }
+
+    public Dosen(String image, String id, String nama, String nidn, String gelar, String email, String alamat) { //PARAMETER 2
+        this.image = image;
+        this.id = id;
+        this.nama = nama;
+        this.nidn = nidn;
+        this.gelar = gelar;
+        this.email = email;
+        this.alamat = alamat;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public String getNidn() {
@@ -24,11 +75,11 @@ public class Dosen {
         this.nidn = nidn;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
