@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.projectuts_uas.Model.Dosen;
+import com.example.projectuts_uas.Model.DefaultResult;
 
 //import com.example.projectuts_uas.com.projectprogmoba.Model.DefaultResult;
 //import com.example.projectuts_uas.com.projectprogmoba.Model.Dosen;
@@ -15,23 +16,23 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface GetDataService {
+public interface GetDataService{
 
     @GET("/api/progmob/dosen/{nim_progmob}")//parameter nya yaitu endpoint di api
     Call<ArrayList<Dosen>> getDosenAll(@Path("nim_progmob") String nim_progmob);
     //Call<List<Dosen>> getDosenAll(@Query("nim_progmob") String nim_progmob);
 
-    /*@FormUrlEncoded
+    @FormUrlEncoded
     @POST("/api/progmob/dosen/create")
     Call<DefaultResult> insert_dosen(
-            @Field("nama") String nama,
             @Field("nidn") String nidn,
+            @Field("nama") String nama,
             @Field("alamat") String alamat,
             @Field("email") String email,
             @Field("gelar") String gelar,
             @Field("foto") String foto,
             @Field("nim_progmob") String nim_progmob
-    );*/
+    );
 
     /*@FormUrlEncoded
     @POST("/si_mapping/api/user_login.php")

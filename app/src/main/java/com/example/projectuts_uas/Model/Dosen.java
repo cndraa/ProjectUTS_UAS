@@ -33,6 +33,11 @@ public class Dosen {
     @Expose
     private String alamat;
 
+
+    @SerializedName("nim_progmob")
+    @Expose
+    private String nim;
+
     public Dosen(String image, String nidn, String gelar, String email, String alamat){ //PARAMETER 1
         this.image = image;
         this.nidn = nidn;
@@ -41,7 +46,7 @@ public class Dosen {
         this.alamat = alamat;
     }
 
-    public Dosen(String image, String id, String nama, String nidn, String gelar, String email, String alamat) { //PARAMETER 2
+    public Dosen(String image, String id, String nama, String nidn, String gelar, String email, String alamat, String nim) { //PARAMETER 2
         this.image = image;
         this.id = id;
         this.nama = nama;
@@ -49,6 +54,7 @@ public class Dosen {
         this.gelar = gelar;
         this.email = email;
         this.alamat = alamat;
+        this.nim = nim;
     }
 
     public String getId() {
@@ -105,5 +111,12 @@ public class Dosen {
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
+    }
+    public String getNim() {
+        return nim;
+    }
+
+    public void setNim(String nim) {
+        this.nim = nim;
     }
 }

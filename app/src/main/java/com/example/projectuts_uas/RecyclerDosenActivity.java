@@ -5,7 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -41,7 +45,7 @@ public class RecyclerDosenActivity extends AppCompatActivity {
 
 
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-        Call<ArrayList<Dosen>> call = service.getDosenAll("721600012");
+        Call<ArrayList<Dosen>> call = service.getDosenAll("72170139");
         call.enqueue(new Callback<ArrayList<Dosen>>() {
             @Override
             public void onResponse(Call<ArrayList<Dosen>> call, Response<ArrayList<Dosen>> response) {
@@ -60,6 +64,23 @@ public class RecyclerDosenActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menucruddosen,menu);
+        return true;
+    }
+
+    //isi dari menu titik tiga
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(item.getItemId() == R.id.item1){
+            Intent intent = new Intent(RecyclerDosenActivity.this, CrudDosenActivity.class); //intent untuk berpindah Main3activity
+            startActivity(intent);
+        }
+        return true;
     }
 
     /*private void tambahDosen() {
