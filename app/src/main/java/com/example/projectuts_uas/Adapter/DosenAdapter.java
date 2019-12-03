@@ -2,6 +2,7 @@ package com.example.projectuts_uas.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -67,7 +68,7 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
         return (dataList != null) ? dataList.size() : 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         private TextView txtNidn, txtGelar, txtEmail, txtAlamat;
         private CardView cv;
         private ImageView icon;
@@ -80,7 +81,16 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.ViewHolder> 
             txtEmail = view.findViewById(R.id.txtEmail);
             txtAlamat = view.findViewById(R.id.txtAlamat);
             cv = view.findViewById(R.id.card_view_dosen);
+            view.setOnCreateContextMenuListener(this);
+        }
 
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+            contextMenu.setHeaderTitle("Pilih Aksi");
+            contextMenu.add(this.getAdapterPosition(), view.getId(), 0, "Ubah Data Dosen");
+            contextMenu.add(this.getAdapterPosition(), view.getId(), 0, "Hapus Data Dosen");
         }
     }
+
+
 }

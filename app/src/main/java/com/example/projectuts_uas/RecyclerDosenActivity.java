@@ -1,5 +1,6 @@
 package com.example.projectuts_uas;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,8 +16,11 @@ import android.widget.Toast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import com.example.projectuts_uas.Model.DefaultResult;
 import com.example.projectuts_uas.Network.GetDataService;
 import com.example.projectuts_uas.Network.RetrofitClientInstance;
+import com.example.projectuts_uas.Model.DefaultResult;
 
 import com.example.projectuts_uas.Adapter.DosenAdapter;
 import com.example.projectuts_uas.Model.Dosen;
@@ -38,6 +42,8 @@ public class RecyclerDosenActivity extends AppCompatActivity {
 
         this.setTitle("SI KRS - Hai [Nama Admin]");
 
+        recyclerView = (RecyclerView) findViewById(R.id.rvDosen);
+
         //tambahDosen();
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Sek Dulu Yaa");
@@ -52,6 +58,7 @@ public class RecyclerDosenActivity extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 recyclerView = findViewById(R.id.rvDosen);
+                dosenArray = response.body();
                 dosenAdapter = new DosenAdapter(response.body());
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecyclerDosenActivity.this);
                 recyclerView.setLayoutManager(layoutManager);
@@ -64,6 +71,52 @@ public class RecyclerDosenActivity extends AppCompatActivity {
             }
         });
 
+        registerForContextMenu(recyclerView);//buat mendaftarkan registermenu (yg dipencet lama) ke recycler
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Dosen dosen = dosenArray.get(item.getGroupId());
+        if(item.getTitle() == "Ubah Data Dosen"){
+            Intent intent = new Intent(RecyclerDosenActivity.this, CrudDosenActivity.class);
+            intent.putExtra("id_dosen", dosen.getId());
+            intent.putExtra("nama_dosen", dosen.getNama());
+            intent.putExtra("nidn", dosen.getNidn());
+            intent.putExtra("alamat", dosen.getAlamat());
+            intent.putExtra("email", dosen.getEmail());
+            intent.putExtra("gelar", dosen.getGelar());
+            intent.putExtra("foto", dosen.getImage());
+            intent.putExtra("is_update", true);
+            startActivity(intent);
+        }else if(item.getTitle() == "Hapus Data Dosen"){
+            progressDialog = new ProgressDialog(RecyclerDosenActivity.this);
+            progressDialog.show();
+
+            GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+            Call<DefaultResult> call = service.delete_dosen(
+                    dosen.getId(),
+                    "72170139"
+            );
+
+            call.enqueue(new Callback<DefaultResult>() {
+                @Override
+                public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
+                    progressDialog.dismiss();
+                    Toast.makeText(RecyclerDosenActivity.this, "Berhasil Dihapus!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RecyclerDosenActivity.this, RecyclerDosenActivity.class);
+                    finish();
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(Call<DefaultResult> call, Throwable t) {
+                    progressDialog.dismiss();
+                    Toast.makeText(RecyclerDosenActivity.this, "Gagal Hapus, Harap Coba Lagi", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        return super.onContextItemSelected(item);
     }
 
     @Override

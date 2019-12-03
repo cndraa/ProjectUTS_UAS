@@ -23,7 +23,7 @@ public interface GetDataService{
     //Call<List<Dosen>> getDosenAll(@Query("nim_progmob") String nim_progmob);
 
     @FormUrlEncoded
-    @POST("/api/progmob/dosen/create")
+    @POST("/api/progmob/dosen/createfoto")
     Call<DefaultResult> insert_dosen(
             @Field("nidn") String nidn,
             @Field("nama") String nama,
@@ -33,6 +33,27 @@ public interface GetDataService{
             @Field("foto") String foto,
             @Field("nim_progmob") String nim_progmob
     );
+
+    @FormUrlEncoded
+    @POST("/api/progmob/dosen/delete")
+    Call<DefaultResult> delete_dosen(
+            @Field("id") String id,
+            @Field("nim_progmob") String nim_progmob
+    );
+
+    @FormUrlEncoded
+    @POST("/api/progmob/dosen/updatewithfoto")
+    Call<DefaultResult> update_dosen(
+            @Field("id") String id,
+            @Field("nama") String nama,
+            @Field("nidn") String nidn,
+            @Field("alamat") String alamat,
+            @Field("email") String email,
+            @Field("gelar") String gelar,
+            @Field("foto") String foto,
+            @Field("nim_progmob") String nim_progmob
+    );
+
 
     /*@FormUrlEncoded
     @POST("/si_mapping/api/user_login.php")
