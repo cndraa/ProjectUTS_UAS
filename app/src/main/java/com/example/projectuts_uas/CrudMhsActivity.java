@@ -111,10 +111,10 @@ public class CrudMhsActivity extends AppCompatActivity {
                 }else if(email.getText().toString().length()==0) {
                     //jika form Email belum di isi / masih kosong
                     email.setError("Email Mahasiswa Harus Diis!");
-                }/*else if(foto.getText().toString().length()==0) {
+                }else if(foto.getText().toString().length()==0) {
                     //jika form Email belum di isi / masih kosong
                     foto.setError("Foto Mahasiswa Harus Diis!");
-                }*/else{
+                }else{
                     builder.setMessage("Apakah anda yakin untuk simpan?").setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

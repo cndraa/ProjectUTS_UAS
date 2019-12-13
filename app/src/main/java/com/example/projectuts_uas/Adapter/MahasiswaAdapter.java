@@ -76,7 +76,7 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
         public ViewHolder(View view){
             super(view);//Super --> akan mengambil
             icon = view.findViewById(R.id.imageMhs2);
-            txtNama = view.findViewById(R.id.txtNmaMhs);
+            txtNama = view.findViewById(R.id.txtNamaMhs2);
             txtNim = view.findViewById(R.id.txtNim);
             txtEmail = view.findViewById(R.id.txtEmail);
             txtAlamat = view.findViewById(R.id.txtAlamat);

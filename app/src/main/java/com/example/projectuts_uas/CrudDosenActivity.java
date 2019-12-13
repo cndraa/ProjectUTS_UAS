@@ -130,10 +130,10 @@ public class CrudDosenActivity extends AppCompatActivity {
                 }else if(gelar_dsn.getText().toString().length()==0) {
                     //jika form Email belum di isi / masih kosong
                     gelar_dsn.setError("Gelar Dosen Harus Diis!");
-                }/*else if(foto.getText().toString().length()==0) {
+                }else if(foto.getText().toString().length()==0) {
                     //jika form Email belum di isi / masih kosong
                     foto.setError("Foto Dosen Harus Diis!");
-                }*/else {
+                }else {
                     builder.setMessage("Apakah anda yakin untuk simpan?")
                             .setNegativeButton("No", new DialogInterface.OnClickListener() {
                                 @Override
