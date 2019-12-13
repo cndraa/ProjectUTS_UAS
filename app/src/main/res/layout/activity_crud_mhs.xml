@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".CrudMhsActivity">
 
+    <ImageView
+        android:id="@+id/imageMhsCrud"
+        android:layout_width="133dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.621"
+        app:srcCompat="@mipmap/ic_launcher" />
+
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
@@ -72,7 +83,7 @@
         app:layout_constraintVertical_bias="0.22" />
 
     <EditText
-        android:id="@+id/txtEditNama2"
+        android:id="@+id/txtNmaMhs"
         android:layout_width="264dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -111,6 +122,18 @@
         app:layout_constraintVertical_bias="0.215" />
 
     <EditText
+        android:id="@+id/txtEditFotoMhs"
+        android:layout_width="177dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405" />
+
+    <EditText
         android:id="@+id/txtEditEmail2"
         android:layout_width="264dp"
         android:layout_height="43dp"
@@ -130,7 +153,7 @@
         android:text="browse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.403" />
@@ -147,6 +170,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
+        app:layout_constraintVertical_bias="0.799" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

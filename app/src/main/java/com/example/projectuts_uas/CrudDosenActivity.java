@@ -111,26 +111,46 @@ public class CrudDosenActivity extends AppCompatActivity {
         simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(CrudDosenActivity.this);
 
-                builder.setMessage("Apakah anda yakin untuk simpan?")
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(CrudDosenActivity.this, "Tidak Jadi Simpan!", Toast.LENGTH_SHORT).show();
-                            }
-                        }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        add_data();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                if(nama_dsn.getText().toString().length()==0) {
+                    //jika form Email belum di isi / masih kosong
+                    nama_dsn.setError("Nama Dosen Harus Diis!");
+                }else if(nidn.getText().toString().length()==0) {
+                    //jika form Email belum di isi / masih kosong
+                    nidn.setError("NIDN Dosen Harus Diis!");
+                }else if(almt_dsn.getText().toString().length()==0) {
+                    //jika form Email belum di isi / masih kosong
+                    almt_dsn.setError("Alamat Dosen Harus Diis!");
+                }else if(email_dsn.getText().toString().length()==0) {
+                    //jika form Email belum di isi / masih kosong
+                    email_dsn.setError("Email Dosen Harus Diis!");
+                }else if(gelar_dsn.getText().toString().length()==0) {
+                    //jika form Email belum di isi / masih kosong
+                    gelar_dsn.setError("Gelar Dosen Harus Diis!");
+                }/*else if(foto.getText().toString().length()==0) {
+                    //jika form Email belum di isi / masih kosong
+                    foto.setError("Foto Dosen Harus Diis!");
+                }*/else {
+                    builder.setMessage("Apakah anda yakin untuk simpan?")
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Toast.makeText(CrudDosenActivity.this, "Tidak Jadi Simpan!", Toast.LENGTH_SHORT).show();
+                                }
+                            }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            add_data();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
             }
         });
-
     }
 
 

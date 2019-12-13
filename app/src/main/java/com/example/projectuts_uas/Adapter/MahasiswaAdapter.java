@@ -2,6 +2,7 @@ package com.example.projectuts_uas.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import com.example.projectuts_uas.CrudMhsActivity;
 import com.example.projectuts_uas.Model.Dosen;
 import com.example.projectuts_uas.Model.Mahasiswa;
 import com.example.projectuts_uas.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,12 +37,18 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_mahasiswa, parent, false);
         context = parent.getContext();
-        return new MahasiswaAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MahasiswaAdapter.ViewHolder holder, final int position) {
-        holder.icon.setImageResource(dataList.get(position).getImage());
+        holder.icon.getLayoutParams().width = 100;
+        holder.icon.getLayoutParams().height = 100;
+        if (dataList.get(position).getImage()!= null){
+            Picasso.with(this.context)
+                    .load("https://kpsi.fti.ukdw.ac.id/progmob/" + dataList.get(position).getImage())
+                    .into(holder.icon);
+        }
         holder.txtNim.setText(dataList.get(position).getNim());
         holder.txtEmail.setText(dataList.get(position).getEmail());
         holder.txtAlamat.setText(dataList.get(position).getAlamat());
@@ -60,18 +68,26 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
         return (dataList != null) ? dataList.size() : 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         private TextView txtNim,txtEmail, txtAlamat;
         private ImageView icon;
         private CardView cv;
 
         public ViewHolder(View view){
             super(view);//Super --> akan mengambil
-            icon = view.findViewById(R.id.imageMhs);
+            icon = view.findViewById(R.id.imageMhs2);
             txtNim = view.findViewById(R.id.txtNim);
             txtEmail = view.findViewById(R.id.txtEmail);
             txtAlamat = view.findViewById(R.id.txtAlamat);
             cv = view.findViewById(R.id.cvMahasiswa);
+            view.setOnCreateContextMenuListener(this);
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+            contextMenu.setHeaderTitle("Pilih Aksi");
+            contextMenu.add(this.getAdapterPosition(), view.getId(), 0, "Ubah Data Mahasiswa");
+            contextMenu.add(this.getAdapterPosition(), view.getId(), 0, "Hapus Data Mahasiswa");
         }
     }
 }

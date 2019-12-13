@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.projectuts_uas.Model.Dosen;
 import com.example.projectuts_uas.Model.DefaultResult;
+import com.example.projectuts_uas.Model.Mahasiswa;
 
 //import com.example.projectuts_uas.com.projectprogmoba.Model.DefaultResult;
 //import com.example.projectuts_uas.com.projectprogmoba.Model.Dosen;
@@ -50,6 +51,40 @@ public interface GetDataService{
             @Field("alamat") String alamat,
             @Field("email") String email,
             @Field("gelar") String gelar,
+            @Field("foto") String foto,
+            @Field("nim_progmob") String nim_progmob
+    );
+
+    @GET("/api/progmob/mhs/{nim_progmob}")//parameter nya yaitu endpoint di api
+    Call<ArrayList<Mahasiswa>> getMahasiswaAll(@Path("nim_progmob") String nim_progmob);
+    //Call<List<Dosen>> getDosenAll(@Query("nim_progmob") String nim_progmob);
+
+    @FormUrlEncoded
+    @POST("/api/progmob/mhs/create")
+    Call<DefaultResult> insert_mhs(
+            @Field("nama") String nama,
+            @Field("nim") String nim,
+            @Field("alamat") String alamat,
+            @Field("email") String email,
+            @Field("foto") String foto,
+            @Field("nim_progmob") String nim_progmob
+    );
+
+    @FormUrlEncoded
+    @POST("/api/progmob/mhs/delete")
+    Call<DefaultResult> delete_mhs(
+            @Field("id") String id,
+            @Field("nim_progmob") String nim_progmob
+    );
+
+    @FormUrlEncoded
+    @POST("/api/progmob/mhs/update")
+    Call<DefaultResult> update_mhs(
+            @Field("id") String id,
+            @Field("nama") String nama,
+            @Field("nim") String nim,
+            @Field("alamat") String alamat,
+            @Field("email") String email,
             @Field("foto") String foto,
             @Field("nim_progmob") String nim_progmob
     );
