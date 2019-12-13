@@ -42,8 +42,8 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull MahasiswaAdapter.ViewHolder holder, final int position) {
-        holder.icon.getLayoutParams().width = 100;
-        holder.icon.getLayoutParams().height = 100;
+        holder.icon.getLayoutParams().width = 600;
+        holder.icon.getLayoutParams().height = 600;
         if (dataList.get(position).getImage()!= null){
             Picasso.with(this.context)
                     .load("https://kpsi.fti.ukdw.ac.id/progmob/" + dataList.get(position).getImage())
@@ -69,13 +69,14 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
-        private TextView txtNim,txtEmail, txtAlamat;
+        private TextView txtNama, txtNim,txtEmail, txtAlamat;
         private ImageView icon;
         private CardView cv;
 
         public ViewHolder(View view){
             super(view);//Super --> akan mengambil
             icon = view.findViewById(R.id.imageMhs2);
+            txtNama = view.findViewById(R.id.txtNmaMhs);
             txtNim = view.findViewById(R.id.txtNim);
             txtEmail = view.findViewById(R.id.txtEmail);
             txtAlamat = view.findViewById(R.id.txtAlamat);
