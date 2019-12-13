@@ -49,6 +49,7 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
                     .load("https://kpsi.fti.ukdw.ac.id/progmob/" + dataList.get(position).getImage())
                     .into(holder.icon);
         }
+        holder.txtNama.setText(dataList.get(position).getNama());
         holder.txtNim.setText(dataList.get(position).getNim());
         holder.txtEmail.setText(dataList.get(position).getEmail());
         holder.txtAlamat.setText(dataList.get(position).getAlamat());
